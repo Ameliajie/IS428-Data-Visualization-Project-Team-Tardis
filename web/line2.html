@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../favicon.ico">
+
+	<title>VA :: Team Tardis</title>
+
+	<link href="css/bootstrap.css"      rel="stylesheet">
+	<link href="css/d3.parcoords.css"   rel="stylesheet">
+	<link href="css/nv.d3.css"          rel="stylesheet">
+	<link href="css/d3.parcoords.css"   rel="stylesheet">
+	<link href="css/bootstrap-select.css"      rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<style type="text/css">
+
+		#chart_line svg, #chart_bar_industry svg, #chart_line_industry svg {
+			padding-left: 20px;
+		}
+
+		#chart_line svg {
+			height: 300px; width:100%;
+		}
+
+		#chart_bar svg {
+			height: 700px; width:100%;
+		}
+
+		#chart_line_industry svg, #chart_bar_industry svg, #chart_donut svg {
+			height: 400px; width:100%;
+		}
+
+		#navigation {
+			margin: 15px 60px 15px 60px;
+			position: absolute;
+			right: 0px;
+			top: 0px;
+		}
+
+		#header span {
+			margin-right: 15px;
+		}
+
+		#main {
+			padding-top: 60px;
+		}
+
+		.nvtooltip {
+			padding: 0 15px 0 15px;
+		}
+
+		.nv-x line, .nv-y line {
+      stroke-opacity : .3;
+    }
+
+    #chart_line path.domain,  #chart_line_industry path.domain {
+      stroke-opacity: 1;
+    }
+
+    #chart_donut svg {
+    	margin-top: -75px;
+    }
+
+    #chart_bar rect:hover, #chart_bar_industry rect:hover, #chart_donut path:hover {
+    	fill : #800000;
+    }
+
+    .positive {
+    	color :#088C01;
+    }
+
+    .negative {
+    	color: #B52A2A;
+    }
+
+    .country_selected {
+    	fill : #800000;
+    }
+
+    .blurred_lines {
+    	stroke-opacity : .2 !important;
+    }
+
+    #chart_line g.nv-group {
+    	-webkit-transition-duration: 500; /* Safari */
+    	transition-duration: 500;
+    }
+
+    #industry_picker a:hover{
+    	background-color: #A5706B;
+    }
+
+	</style>
+
+	<script src="js/d3.js"></script>
+	<script src="js/nv.d3.js"></script>
+	<script src="js/d3.parcoords.js"></script>
+	<script src="js/underscore.js"></script>
+</head>
+<body>
+	<div class="page container-fluid">
+		<div id="header">
+			<h1>Singapore Investment Dashboard</h1>
+			<span>Created by Team Tardis for 
+				<a target="_blank" href="https://wiki.smu.edu.sg/1415t1is428/Tardis">IS428 Visual Analytics for Business Intelligence</a>
+			</span>
+			<span><i class="fa fa-bar-chart"></i></i> <a href="line.html">Dashboard 1</a></span>
+			<span><i class="fa fa-bar-chart"></i></i> <a href="line2.html">Dashboard 2</a></span>
+			<span><i class="fa fa-database"></i> <a target="_blank" href="http://www.singstat.gov.sg/statistics/browse_by_theme/investment.html"> Singstat</a></span>
+			<span><i class="fa fa-wrench"></i> <a target="_blank" href="http://nvd3.org/"> NVD3.js</a></span>
+			<span><i class="fa fa-info"></i></i> <a href="#" id="button">Definitions</a></span>
+		</div>
+		<div id="main" class="col-lg-12 row">
+	    <div id="chart_bar" class="col-lg-3">
+	    		<h4 id="chart_bar_title">Investment by Country <small id="country_year"></small></h4>
+	    		<div class="form-group">
+    				<label for="select_type" class="col-lg-3 control-label text-right">Type</label>
+            <span class="col-lg-9" id="select_type_container">
+	    				<select id="select_type" class="form-control selectpicker">
+	    				</select>
+    				</span>
+	    		</div>
+	    		<div> <!-- svg container -->
+	    			<svg></svg>
+	    		</div>
+	    </div>
+	    <div id="chart_detail" class="col-lg-9">
+		    <div id="chart_line_industry" class="col-lg-8">
+		    	<h4 id="industry_line_title">Industry performance over time , <small id="line_country_industry">Total</small></h4>
+		    	<div> <!-- svg container -->
+	    			<svg></svg>
+	    		</div>
+				</div>
+				<div class="col-lg-2">
+					<h4>Filter</h4>
+					<div id="industry_picker" class="list-group">
+					</div>
+				</div>
+	    	<div id="chart_line" class="col-lg-8">
+	    		<h4 id="chart_line_title">Investment in Singapore by Type <small>1998-2012</small>, <small id="line_country">Total</small></h4>
+	    		<div>
+	    			<div class="btn-group" role="group" aria-label="...">
+						  <button id="value_button" type="button" class="btn btn-default active">Value</button>
+						  <button id="growth_button" type="button" class="btn btn-default">Growth</button>
+					  </div>
+	    		</div>
+	    		<div>
+	    			<svg></svg>
+	    		</div>
+		    </div>
+			</div>
+		</div>
+	</div>
+
+	<div id="helper" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 class="modal-title">Definitions</h3>
+				</div>
+				<div class="modal-body">
+					<p>
+						<h4>Foreign Direct Investment (FDI)</h4>
+						The term describes a category of international investment made by a resident entity in one economy (direct investor) with the objective of establishing a lasting interest in an enterprise resident in an economy other than that of the investor (direct investment enterprise). 
+					</p>
+					<br/>
+					<p>
+						<h4>Foreign equity</h4>
+						Equity capital comprises: 
+						<ol>
+							<li>equity in branches,</li>
+							<li>all shares in subsidiaries and associates (except nonparticipating, preferred shares, which are treated as debt securities and included under direct investment, other capital), and</li>
+							<li>other capital contributions.</li>
+						</ol>
+					</p>
+					<br/>
+					<p>
+						<h4>Foreign portfolio investment</h4>
+						Portfolio investment is defined as cross border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.js"></script>
+	<script src="js/line2.js"></script>
+
+	<script>
+		var year,
+				industry,
+				type 				= "FDI", 	//default
+				country 		= "Total"	//default
+				year 				= 2012,		//default
+				industries 	= [],
+				init 				= false,
+				initLine		= false,
+				initIndustry= false,
+				initDonut		= false,
+				showLine 		= false;
+
+		$('#select_type').selectpicker();
+
+		$('#select_type').on('change', function() {
+			var tgtype = $('#select_type_container .filter-option').text();
+			if(type != tgtype) {
+				type = tgtype;
+				showByCountry(year, type);
+			}
+		});
+
+		$('#button').on('click', function() {
+			$('#helper').modal('toggle');
+		});
+
+		$('#value_button').on('click', function() {
+			$('#value_button').toggleClass('active');
+			$('#growth_button').toggleClass('active');
+			displayValue();
+		})
+
+		$('#growth_button').on('click', function() {
+			$('#growth_button').toggleClass('active');
+			$('#value_button').toggleClass('active');
+			displayGrowth();
+		})
+
+	</script>
+	<!-- Bootswatch theme applet
+	<script src="js/bootswatchlet.js"></script> -->
+</body>
+</html>

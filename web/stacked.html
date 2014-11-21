@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>VA :: Team Tardis</title>
+
+    <!-- CSS -->
+    <link href="css/bootstrap.css"      rel="stylesheet">
+    <link href="css/d3.parcoords.css"   rel="stylesheet">
+    <link href="css/nv.d3.css"          rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+    /*
+      TO DO: 
+      move this to separate css later!
+    */
+
+      body {
+        padding-top: 70px;
+      }
+
+      #graph_area {
+        min-height:560px
+      }
+
+      #graph_area svg {
+        min-height: inherit;
+        width: 1020px;
+      }
+
+      .jumbotron {
+        background-color: #fff;
+      }
+
+      #filter .tt-dropdown-menu {
+        max-height: 150px;
+        overflow-y: auto;
+      }
+      .typeahead,
+      .tt-query,
+      .tt-hint {
+        width: 396px;
+        height: 30px;
+        padding: 8px 12px;
+        font-size: 24px;
+        line-height: 30px;
+        outline: none;
+      }
+
+      .tt-dropdown-menu {
+        width: 422px;
+        min-width: 160px;
+        padding: 10px 20px;
+        margin: 2px 0 0;
+        font-size: 13px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        background-clip: padding-box;
+      }
+
+      .tick:not(.zero) {
+        opacity: 0;
+      }
+
+    </style>
+
+    <!-- JS -->
+    <script src="js/d3.js"></script>
+    <script src="js/nv.d3.js"></script>
+    <script src="js/underscore.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">TEAM_TARDIS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="stacked.html">Stacked Total</a></li>
+            <li><a href="stacked2.html">Stacked by Country</a></li>
+            <li><a href="tree2.html">Tree Map</a></li>
+            <li><a href="parcoord.html">Parallel Coordinates</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="jumbotron">
+
+        <!-- Search area -->
+        <div id="filter" class="row">
+          <input id="country_input" class="typeahead form-control" type="text" placeholder="Select individual country">
+          <button id="filter_button" class="btn btn-primary">Filter</button>
+          <button id="clear_button" class="btn btn-default">Show Total</button>
+        </div>
+
+        <div class="row">
+          <h3 id="graph_title">Total Investment in Singapore</h3>
+          <p id="graph_subtitle"  class="lead">2008-2012, by Investment Type </p>
+          <p id="filter_title"    class="text-primary">&nbsp;</p>
+        </div>
+
+        <!-- Graph area -->
+        <div id="graph_area" class="row">
+          <svg></svg>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- stacked script, move to separate file? -->
+    <script>
+      var fulldata;
+      var chart;
+      var country = "Total";
+      var countries = [];
+      var colorgen = d3.scale.category20();
+      var colors = {};
+
+      //populate datastream, draw default graph
+      var graph = d3.csv('data/Book3.csv', function(data) {
+        fulldata = data;
+        _(fulldata).chain()
+          .pluck('Type')
+          .uniq()
+          .each(function(d,i) {
+            colors[d] = colorgen(i);
+          });
+
+        _(fulldata).chain()
+          .pluck('Country')
+          .uniq()
+          .each(function(d,i) {
+            countries.push(d);
+          });
+        var datastream = filterData(data, country);
+        drawChart(datastream);
+      });
+
+      color = function(d) { return colors[d.Country]; };
+
+      function filterData(data, country) {
+        //type arrays
+        var FEI = {key:"FEI", values:[]};
+        var FDI = {key:"FDI", values:[]};
+        var FPEI = {key:"FPEI", values:[]};
+        var FDEI = {key:"FDEI", values:[]};
+
+        var datastream = [];
+        _(data).chain()
+          .uniq()
+          .each(function(d,i) {
+            if(d.Country === country) {
+              var type = d.Type;
+              d.x = d.Year; d.y= parseInt(d.Value);
+              switch(type) {
+                case "FEI":
+                  FEI.values.push(d);
+                  break;
+                case "FDI":
+                  FDI.values.push(d);
+                  break;
+                case "FDEI":
+                  FDEI.values.push(d);
+                  break;
+                case "FPEI":
+                  FPEI.values.push(d);
+                  break;
+              }
+            }
+          });
+        datastream.push(FDI);
+        datastream.push(FEI);
+        datastream.push(FDEI);
+        datastream.push(FPEI);
+        return datastream;
+      }
+
+      function drawChart(datastream) {
+        chart = nv.addGraph(function() {
+          var chart = nv.models.multiBarChart()
+            .transitionDuration(350)
+            .reduceXTicks(false)  //If 'false', every single x-axis tick label will be rendered.
+            .rotateLabels(0)      //Angle to rotate x-axis labels.
+            .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+            .groupSpacing(0.5)    //Distance between each group of bars.
+          ;
+
+          chart.yAxis
+              .tickFormat(d3.format('s'));
+
+          chart.color(function(d) {
+            return colors[d.key];
+          });
+
+          d3.select('#graph_area svg')
+              .datum(datastream)
+              .transition().duration(500)
+              .call(chart);
+
+          nv.utils.windowResize(chart.update);
+
+          return chart;
+        });
+      }
+
+      function displayCountry(country) {
+        var data = filterData(fulldata, country);
+        drawChart(data);
+        $("#filter_title").text("Displaying graph for " + country);
+      }
+
+      function clearHighlights() {
+        var data = filterData(fulldata, "Total");
+        drawChart(data);
+        $("#filter_title").text("\u00A0");
+      }
+
+      var substringMatcher = function(strs) {
+        return function findMatches(q, cb) {
+          var matches, substrRegex;
+          // an array that will be populated with substring matches
+          matches = [];
+          // regex used to determine if a string contains the substring `q`
+          substrRegex = new RegExp(q, 'i');
+          // iterate through the pool of strings and for any string that
+          // contains the substring `q`, add it to the `matches` array
+          $.each(strs, function(i, str) {
+            if (substrRegex.test(str)) {
+              // the typeahead jQuery plugin expects suggestions to a
+              // JavaScript object, refer to typeahead docs for more info
+              matches.push({ value: str });
+            }
+          });
+          cb(matches);
+        };
+      };
+
+      $('#filter .typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        name: 'countries',
+        displayKey: 'value',
+        source: substringMatcher(countries)
+      });
+
+      $('#filter_button').on('click', function() {
+        var country = $('#country_input').val();
+        if(_.contains(countries, country)) {
+          displayCountry(country);
+        } else if (country === "") {
+          $('#clear_button').click();
+        } 
+      });
+      $('#clear_button').on('click', function() {
+        clearHighlights();
+        $('#country_input').val("");
+      });
+
+    </script>
+  </body>
+</html>

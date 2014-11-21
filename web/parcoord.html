@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>VA :: Team Tardis</title>
+
+    <!-- CSS -->
+    <link href="css/bootstrap.css"  rel="stylesheet">
+    <link href="css/d3.parcoords.css"   rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+    /*
+      TO DO: 
+      move this to separate css later!
+    */
+
+      body {
+        padding-top: 70px;
+      }
+
+      #graph_area {
+        min-height:560px
+      }
+
+      .jumbotron {
+        background-color: #fff;
+      }
+
+      #filter .tt-dropdown-menu {
+        max-height: 150px;
+        overflow-y: auto;
+      }
+      .typeahead,
+      .tt-query,
+      .tt-hint {
+        width: 396px;
+        height: 30px;
+        padding: 8px 12px;
+        font-size: 24px;
+        line-height: 30px;
+        outline: none;
+      }
+
+      .tt-dropdown-menu {
+        width: 422px;
+        min-width: 160px;
+        padding: 10px 20px;
+        margin: 2px 0 0;
+        font-size: 13px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        background-clip: padding-box;
+      }
+
+    </style>
+
+    <!-- JS -->
+    <script src="js/d3.js"></script>
+    <script src="js/d3.parcoords.js"></script>
+    <script src="js/underscore.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">TEAM_TARDIS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="stacked.html">Stacked Total</a></li>
+            <li><a href="stacked2.html">Stacked by Country</a></li>
+            <li><a href="tree2.html">Tree Map</a></li>
+            <li class="active"><a href="parcoord.html">Parallel Coordinates</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="jumbotron">
+
+        <!-- Help area -->
+        <div class="pull-right">
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-question fa-lg"></i> Help
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search area -->
+        <div id="filter" class="row">
+          <input id="country_input" class="typeahead form-control" type="text" placeholder="Highlight individual country">
+          <button id="filter_button" class="btn btn-primary">Highlight</button>
+          <button id="clear_button" class="btn btn-default">Clear</button>
+        </div>
+
+        <!--Title box-->
+        <div class="row">
+          <h3 id="graph_title">Foreign Direct Investment in Singapore</h3>
+          <p id="graph_subtitle"  class="lead">2008-2012, By Country/Region and Major Industry.</p>
+          <p id="filter_title"    class="text-primary">&nbsp;</p>
+        </div>
+        <!-- Graph area -->
+        <div id="graph_area" class="parcoords row">
+        </div>
+
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- parcoords script, move to separate file? -->
+    <script>
+      // linear color scale
+      // interact with this variable from a javascript console
+      var fulldata = [];
+      var countries = [];
+      var pc_progressive;
+      // load csv file and create the chart
+      d3.csv('data/para.csv', function(data) {
+        fulldata = data;
+        var colorgen = d3.scale.category10();
+        var colors = {};
+        _(data).chain()
+          .pluck('Country')
+          .uniq()
+          .each(function(d,i) {
+            countries.push(d);
+            colors[d] = colorgen(i);
+          });
+
+        color = function(d) { return colors[d.Country]; };
+
+        pc_progressive = d3.parcoords()("#graph_area")
+          .data(data)
+          .color(color)
+          .alpha(0.4)
+          .margin({ top: 30, left: 65, bottom: 5, right: 0 })
+          .mode("queue")
+          .rate(10)
+          .render()
+          .brushMode("1D-axes")  // enable brushing
+          .reorderable()
+          .interactive()  // command line mode
+        pc_progressive.svg.selectAll("text")
+          .style("font", "10px sans-serif");
+      });
+      
+      function displayCountry(country) {
+        pc_progressive.highlight(pc_progressive.data().filter(function(d) {return d.Country === country;}));
+        // pc_progressive
+        //   .data(
+        //     fulldata
+        //       .filter(function(d) {
+        //         return d.Country === country;
+        //       })
+        //     ).render();
+        $("#filter_title").text("Highlighting graph for " + country);
+      }
+
+      function clearHighlights() {
+        pc_progressive.unhighlight(pc_progressive.data());
+        // pc_progressive
+        //   .data(
+        //     fulldata
+        //   ).render();
+        $("#filter_title").text("\u00A0");
+      }
+
+      var substringMatcher = function(strs) {
+        return function findMatches(q, cb) {
+          var matches, substrRegex;
+          // an array that will be populated with substring matches
+          matches = [];
+          // regex used to determine if a string contains the substring `q`
+          substrRegex = new RegExp(q, 'i');
+          // iterate through the pool of strings and for any string that
+          // contains the substring `q`, add it to the `matches` array
+          $.each(strs, function(i, str) {
+            if (substrRegex.test(str)) {
+              // the typeahead jQuery plugin expects suggestions to a
+              // JavaScript object, refer to typeahead docs for more info
+              matches.push({ value: str });
+            }
+          });
+          cb(matches);
+        };
+      };
+      $('#filter .typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        name: 'countries',
+        displayKey: 'value',
+        source: substringMatcher(countries)
+      });
+
+      $('#help-button').popover();
+
+      $('#filter_button').on('click', function() {
+        var country = $('#country_input').val();
+        if(_.contains(countries, country)) {
+          displayCountry(country);
+        } else if (country === "") {
+          $('#clear_button').click();
+        } 
+      });
+      $('#clear_button').on('click', function() {
+        clearHighlights();
+        $('#country_input').val("");
+      });
+    </script>
+  </body>
+</html>

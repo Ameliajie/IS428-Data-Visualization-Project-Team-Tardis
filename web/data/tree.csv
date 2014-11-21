@@ -1,0 +1,781 @@
+Industry,Type,Year,Value
+Accommodation & Food Service Activities,FEI,2008,2991.5
+Accommodation & Food Service Activities,FDEI,2008,2911.2
+Accommodation & Food Service Activities,FPEI,2008,80.3
+Accommodation & Food Service Activities,FDI,2008,3355.6
+Banks,FEI,2008,15184.8
+Banks,FDEI,2008,11922
+Banks,FPEI,2008,3262.8
+Banks,FDI,2008,13057.9
+Basic Metals,FEI,2008,492.8
+Basic Metals,FDEI,2008,486.9
+Basic Metals,FPEI,2008,5.9
+Basic Metals,FDI,2008,487.3
+Chemicals & Chemical Products,FEI,2008,7024.9
+Chemicals & Chemical Products,FDEI,2008,7005.8
+Chemicals & Chemical Products,FPEI,2008,19.1
+Chemicals & Chemical Products,FDI,2008,7092.5
+"Computer, Electronic and Optical Products",FEI,2008,33232.4
+"Computer, Electronic and Optical Products",FDEI,2008,31479.2
+"Computer, Electronic and Optical Products",FPEI,2008,1753.2
+"Computer, Electronic and Optical Products",FDI,2008,33295.7
+Computers and Peripheral Equipment,FEI,2008,9319.3
+Computers and Peripheral Equipment,FDEI,2008,9319.3
+Computers and Peripheral Equipment,FPEI,2008,0
+Computers and Peripheral Equipment,FDI,2008,9525.9
+Construction,FEI,2008,2075.9
+Construction,FDEI,2008,1999.3
+Construction,FPEI,2008,76.6
+Construction,FDI,2008,1915.8
+Electrical Machinery & Apparatus,FEI,2008,1037.7
+Electrical Machinery & Apparatus,FDEI,2008,999.2
+Electrical Machinery & Apparatus,FPEI,2008,38.5
+Electrical Machinery & Apparatus,FDI,2008,1211.2
+Fabricated Metal Products,FEI,2008,1569.9
+Fabricated Metal Products,FDEI,2008,1540.7
+Fabricated Metal Products,FPEI,2008,29.2
+Fabricated Metal Products,FDI,2008,1885.5
+Financial & Insurance Services,FEI,2008,214521.1
+Financial & Insurance Services,FDEI,2008,176994.6
+Financial & Insurance Services,FPEI,2008,37526.5
+Financial & Insurance Services,FDI,2008,210126.8
+Financial Services,FEI,2008,206950.9
+Financial Services,FDEI,2008,169459.7
+Financial Services,FPEI,2008,37491.2
+Financial Services,FDI,2008,202529.9
+"Food, Beverages & Tobacco",FEI,2008,1368.7
+"Food, Beverages & Tobacco",FDEI,2008,1359.2
+"Food, Beverages & Tobacco",FPEI,2008,9.5
+"Food, Beverages & Tobacco",FDI,2008,1378.8
+Freight Water Transport,FEI,2008,25994.8
+Freight Water Transport,FDEI,2008,25615.6
+Freight Water Transport,FPEI,2008,379.2
+Freight Water Transport,FDI,2008,28197
+Information & Communications,FEI,2008,5288.9
+Information & Communications,FDEI,2008,3996.9
+Information & Communications,FPEI,2008,1292
+Information & Communications,FDI,2008,5131.7
+"Instrumentation, Photographic & Optical Goods",FEI,2008,2003.3
+"Instrumentation, Photographic & Optical Goods",FDEI,2008,2001.2
+"Instrumentation, Photographic & Optical Goods",FPEI,2008,2.1
+"Instrumentation, Photographic & Optical Goods",FDI,2008,2111.9
+Insurance Services,FEI,2008,7570.1
+Insurance Services,FDEI,2008,7534.9
+Insurance Services,FPEI,2008,35.2
+Insurance Services,FDI,2008,7596.9
+Investment Holding Companies,FEI,2008,174596.2
+Investment Holding Companies,FDEI,2008,140437
+Investment Holding Companies,FPEI,2008,34159.2
+Investment Holding Companies,FDI,2008,168948.9
+Land & Air Transport & Supporting Services,FEI,2008,248.9
+Land & Air Transport & Supporting Services,FDEI,2008,-310.6
+Land & Air Transport & Supporting Services,FPEI,2008,559.5
+Land & Air Transport & Supporting Services,FDI,2008,-312.5
+Machinery & Equipment,FEI,2008,6122.6
+Machinery & Equipment,FDEI,2008,6074.7
+Machinery & Equipment,FPEI,2008,47.9
+Machinery & Equipment,FDI,2008,6192.6
+Manufacturing,FEI,2008,96779.8
+Manufacturing,FDEI,2008,94488.3
+Manufacturing,FPEI,2008,2291.5
+Manufacturing,FDI,2008,105322.8
+Other Electronics nec,FEI,2008,6901.3
+Other Electronics nec,FDEI,2008,6332.2
+Other Electronics nec,FPEI,2008,569.1
+Other Electronics nec,FDI,2008,6044.1
+Other Financial Services,FEI,2008,17169.9
+Other Financial Services,FDEI,2008,17100.7
+Other Financial Services,FPEI,2008,69.2
+Other Financial Services,FDI,2008,20523
+Other Water Transport nec,FEI,2008,4825.5
+Other Water Transport nec,FDEI,2008,4686.7
+Other Water Transport nec,FPEI,2008,138.8
+Other Water Transport nec,FDI,2008,4681.4
+Others,FEI,2008,4253.9
+Others,FDEI,2008,4180.9
+Others,FPEI,2008,73
+Others,FDI,2008,5159.3
+"Paper, Paper Products & Printing",FEI,2008,718.3
+"Paper, Paper Products & Printing",FDEI,2008,682.5
+"Paper, Paper Products & Printing",FPEI,2008,35.8
+"Paper, Paper Products & Printing",FDI,2008,711.9
+Pharmaceutical Products,FEI,2008,29751.2
+Pharmaceutical Products,FDEI,2008,29750.9
+Pharmaceutical Products,FPEI,2008,0.3
+Pharmaceutical Products,FDI,2008,30872.5
+"Professional,  Scientific & Technical, Administrative & Support Services",FEI,2008,29323.8
+"Professional,  Scientific & Technical, Administrative & Support Services",FDEI,2008,29060
+"Professional,  Scientific & Technical, Administrative & Support Services",FPEI,2008,263.8
+"Professional,  Scientific & Technical, Administrative & Support Services",FDI,2008,35594.8
+Real Estate Activities,FEI,2008,13914.6
+Real Estate Activities,FDEI,2008,12572.6
+Real Estate Activities,FPEI,2008,1342
+Real Estate Activities,FDI,2008,14697.8
+Refined Petroleum Products,FEI,2008,7970.2
+Refined Petroleum Products,FDEI,2008,7969.8
+Refined Petroleum Products,FPEI,2008,0.4
+Refined Petroleum Products,FDI,2008,14569.8
+Retail Trade,FEI,2008,2008.7
+Retail Trade,FDEI,2008,1887.3
+Retail Trade,FPEI,2008,121.4
+Retail Trade,FDI,2008,1969.5
+Rubber & Plastic Products,FEI,2008,1341
+Rubber & Plastic Products,FDEI,2008,1253.3
+Rubber & Plastic Products,FPEI,2008,87.7
+Rubber & Plastic Products,FDI,2008,1313.2
+Semiconductor Devices,FEI,2008,15008.6
+Semiconductor Devices,FDEI,2008,13826.6
+Semiconductor Devices,FPEI,2008,1182
+Semiconductor Devices,FDI,2008,15613.7
+Total,FEI,2008,490635.6
+Total,FDEI,2008,445228.7
+Total,FPEI,2008,45406.9
+Total,FDI,2008,510585.2
+Transport & Storage,FEI,2008,34400.8
+Transport & Storage,FDEI,2008,33240.6
+Transport & Storage,FPEI,2008,1160.2
+Transport & Storage,FDI,2008,36328.9
+Transport Equipment,FEI,2008,3868.6
+Transport Equipment,FDEI,2008,3625.3
+Transport Equipment,FPEI,2008,243.3
+Transport Equipment,FDI,2008,3698.5
+"Warehousing, Post & Courier Services",FEI,2008,3331.5
+"Warehousing, Post & Courier Services",FDEI,2008,3248.8
+"Warehousing, Post & Courier Services",FPEI,2008,82.7
+"Warehousing, Post & Courier Services",FDI,2008,3763
+Water Transport & Supporting Services,FEI,2008,30820.4
+Water Transport & Supporting Services,FDEI,2008,30302.4
+Water Transport & Supporting Services,FPEI,2008,518
+Water Transport & Supporting Services,FDI,2008,32878.4
+Wholesale & Retail Trade,FEI,2008,87085.4
+Wholesale & Retail Trade,FDEI,2008,85784.3
+Wholesale & Retail Trade,FPEI,2008,1301.1
+Wholesale & Retail Trade,FDI,2008,92951.7
+Wholesale Trade,FEI,2008,85076.7
+Wholesale Trade,FDEI,2008,83897
+Wholesale Trade,FPEI,2008,1179.7
+Wholesale Trade,FDI,2008,90982.2
+Accommodation & Food Service Activities,FEI,2009,3129.2
+Accommodation & Food Service Activities,FDEI,2009,3079.2
+Accommodation & Food Service Activities,FPEI,2009,50
+Accommodation & Food Service Activities,FDI,2009,3486.7
+Banks,FEI,2009,16687.8
+Banks,FDEI,2009,13090
+Banks,FPEI,2009,3597.8
+Banks,FDI,2009,14325.3
+Basic Metals,FEI,2009,507.2
+Basic Metals,FDEI,2009,504.2
+Basic Metals,FPEI,2009,3
+Basic Metals,FDI,2009,506.3
+Chemicals & Chemical Products,FEI,2009,7983.2
+Chemicals & Chemical Products,FDEI,2009,7887.5
+Chemicals & Chemical Products,FPEI,2009,95.7
+Chemicals & Chemical Products,FDI,2009,7780.9
+"Computer, Electronic and Optical Products",FEI,2009,40722.8
+"Computer, Electronic and Optical Products",FDEI,2009,39825.6
+"Computer, Electronic and Optical Products",FPEI,2009,897.2
+"Computer, Electronic and Optical Products",FDI,2009,41786.5
+Computers and Peripheral Equipment,FEI,2009,12090.6
+Computers and Peripheral Equipment,FDEI,2009,12090.3
+Computers and Peripheral Equipment,FPEI,2009,0.3
+Computers and Peripheral Equipment,FDI,2009,12172
+Construction,FEI,2009,3011.7
+Construction,FDEI,2009,2948.6
+Construction,FPEI,2009,63.1
+Construction,FDI,2009,2754.4
+Electrical Machinery & Apparatus,FEI,2009,1313.4
+Electrical Machinery & Apparatus,FDEI,2009,1270.5
+Electrical Machinery & Apparatus,FPEI,2009,42.9
+Electrical Machinery & Apparatus,FDI,2009,1464.9
+Fabricated Metal Products,FEI,2009,1363.7
+Fabricated Metal Products,FDEI,2009,1349.8
+Fabricated Metal Products,FPEI,2009,13.9
+Fabricated Metal Products,FDI,2009,1851.6
+Financial & Insurance Services,FEI,2009,253660.5
+Financial & Insurance Services,FDEI,2009,211081.3
+Financial & Insurance Services,FPEI,2009,42579.2
+Financial & Insurance Services,FDI,2009,239149.6
+Financial Services,FEI,2009,245690
+Financial Services,FDEI,2009,203140.9
+Financial Services,FPEI,2009,42549.1
+Financial Services,FDI,2009,231190.5
+"Food, Beverages & Tobacco",FEI,2009,1712.3
+"Food, Beverages & Tobacco",FDEI,2009,1703.2
+"Food, Beverages & Tobacco",FPEI,2009,9.1
+"Food, Beverages & Tobacco",FDI,2009,1863.9
+Freight Water Transport,FEI,2009,25314.2
+Freight Water Transport,FDEI,2009,24855.3
+Freight Water Transport,FPEI,2009,458.9
+Freight Water Transport,FDI,2009,28473.4
+Information & Communications,FEI,2009,6287.5
+Information & Communications,FDEI,2009,5189
+Information & Communications,FPEI,2009,1098.5
+Information & Communications,FDI,2009,5901
+"Instrumentation, Photographic & Optical Goods",FEI,2009,6126.5
+"Instrumentation, Photographic & Optical Goods",FDEI,2009,6125.9
+"Instrumentation, Photographic & Optical Goods",FPEI,2009,0.6
+"Instrumentation, Photographic & Optical Goods",FDI,2009,6075
+Insurance Services,FEI,2009,7970.5
+Insurance Services,FDEI,2009,7940.4
+Insurance Services,FPEI,2009,30.1
+Insurance Services,FDI,2009,7959.2
+Investment Holding Companies,FEI,2009,210462.9
+Investment Holding Companies,FDEI,2009,173417.8
+Investment Holding Companies,FPEI,2009,37045.1
+Investment Holding Companies,FDI,2009,197625.2
+Land & Air Transport & Supporting Services,FEI,2009,377.8
+Land & Air Transport & Supporting Services,FDEI,2009,-179
+Land & Air Transport & Supporting Services,FPEI,2009,556.8
+Land & Air Transport & Supporting Services,FDI,2009,-180.9
+Machinery & Equipment,FEI,2009,6100.5
+Machinery & Equipment,FDEI,2009,5994.6
+Machinery & Equipment,FPEI,2009,105.9
+Machinery & Equipment,FDI,2009,6227.4
+Manufacturing,FEI,2009,113580.2
+Manufacturing,FDEI,2009,112072
+Manufacturing,FPEI,2009,1508.2
+Manufacturing,FDI,2009,124834.8
+Other Electronics nec,FEI,2009,6964.7
+Other Electronics nec,FDEI,2009,6373.5
+Other Electronics nec,FPEI,2009,591.2
+Other Electronics nec,FDI,2009,6442
+Other Financial Services,FEI,2009,18539.3
+Other Financial Services,FDEI,2009,16633.1
+Other Financial Services,FPEI,2009,1906.2
+Other Financial Services,FDI,2009,19240
+Other Water Transport nec,FEI,2009,4908.8
+Other Water Transport nec,FDEI,2009,4902.9
+Other Water Transport nec,FPEI,2009,5.9
+Other Water Transport nec,FDI,2009,5481
+Others,FEI,2009,7280.7
+Others,FDEI,2009,7200.4
+Others,FPEI,2009,80.3
+Others,FDI,2009,7763.9
+"Paper, Paper Products & Printing",FEI,2009,632.6
+"Paper, Paper Products & Printing",FDEI,2009,601
+"Paper, Paper Products & Printing",FPEI,2009,31.6
+"Paper, Paper Products & Printing",FDI,2009,628.6
+Pharmaceutical Products,FEI,2009,36573.3
+Pharmaceutical Products,FDEI,2009,36573
+Pharmaceutical Products,FPEI,2009,0.3
+Pharmaceutical Products,FDI,2009,36965.6
+"Professional,  Scientific & Technical, Administrative & Support Services",FEI,2009,34845.4
+"Professional,  Scientific & Technical, Administrative & Support Services",FDEI,2009,34258
+"Professional,  Scientific & Technical, Administrative & Support Services",FPEI,2009,587.4
+"Professional,  Scientific & Technical, Administrative & Support Services",FDI,2009,37667.6
+Real Estate Activities,FEI,2009,15901.6
+Real Estate Activities,FDEI,2009,13442.7
+Real Estate Activities,FPEI,2009,2458.9
+Real Estate Activities,FDI,2009,17307.9
+Refined Petroleum Products,FEI,2009,10730.4
+Refined Petroleum Products,FDEI,2009,10730
+Refined Petroleum Products,FPEI,2009,0.4
+Refined Petroleum Products,FDI,2009,19746.7
+Retail Trade,FEI,2009,2483.3
+Retail Trade,FDEI,2009,2399.2
+Retail Trade,FPEI,2009,84.1
+Retail Trade,FDI,2009,2535.7
+Rubber & Plastic Products,FEI,2009,1688.2
+Rubber & Plastic Products,FDEI,2009,1584.1
+Rubber & Plastic Products,FPEI,2009,104.1
+Rubber & Plastic Products,FDI,2009,1618.3
+Semiconductor Devices,FEI,2009,15541
+Semiconductor Devices,FDEI,2009,15235.9
+Semiconductor Devices,FPEI,2009,305.1
+Semiconductor Devices,FDI,2009,17097.5
+Total,FEI,2009,563131.9
+Total,FDEI,2009,512557.8
+Total,FPEI,2009,50574.1
+Total,FDI,2009,574698.9
+Transport & Storage,FEI,2009,33629.6
+Transport & Storage,FDEI,2009,32545.5
+Transport & Storage,FPEI,2009,1084.1
+Transport & Storage,FDI,2009,36661.3
+Transport Equipment,FEI,2009,3303.7
+Transport Equipment,FDEI,2009,3157.5
+Transport Equipment,FPEI,2009,146.2
+Transport Equipment,FDI,2009,3199.6
+"Warehousing, Post & Courier Services",FEI,2009,3028.7
+"Warehousing, Post & Courier Services",FDEI,2009,2966.2
+"Warehousing, Post & Courier Services",FPEI,2009,62.5
+"Warehousing, Post & Courier Services",FDI,2009,2887.8
+Water Transport & Supporting Services,FEI,2009,30223.1
+Water Transport & Supporting Services,FDEI,2009,29758.3
+Water Transport & Supporting Services,FPEI,2009,464.8
+Water Transport & Supporting Services,FDI,2009,33954.4
+Wholesale & Retail Trade,FEI,2009,91805.4
+Wholesale & Retail Trade,FDEI,2009,90741.1
+Wholesale & Retail Trade,FPEI,2009,1064.3
+Wholesale & Retail Trade,FDI,2009,99171.8
+Wholesale Trade,FEI,2009,89322.2
+Wholesale Trade,FDEI,2009,88341.9
+Wholesale Trade,FPEI,2009,980.3
+Wholesale Trade,FDI,2009,96636.1
+Accommodation & Food Service Activities,FEI,2010,3408.4
+Accommodation & Food Service Activities,FDEI,2010,3357.4
+Accommodation & Food Service Activities,FPEI,2010,51
+Accommodation & Food Service Activities,FDI,2010,3811.8
+Banks,FEI,2010,17546.1
+Banks,FDEI,2010,13313.5
+Banks,FPEI,2010,4232.6
+Banks,FDI,2010,14479.5
+Basic Metals,FEI,2010,499
+Basic Metals,FDEI,2010,496.4
+Basic Metals,FPEI,2010,2.6
+Basic Metals,FDI,2010,497.2
+Chemicals & Chemical Products,FEI,2010,9129.7
+Chemicals & Chemical Products,FDEI,2010,9040.3
+Chemicals & Chemical Products,FPEI,2010,89.4
+Chemicals & Chemical Products,FDI,2010,9189.3
+"Computer, Electronic and Optical Products",FEI,2010,38356.4
+"Computer, Electronic and Optical Products",FDEI,2010,37724.5
+"Computer, Electronic and Optical Products",FPEI,2010,631.9
+"Computer, Electronic and Optical Products",FDI,2010,41138.7
+Computers and Peripheral Equipment,FEI,2010,7980.4
+Computers and Peripheral Equipment,FDEI,2010,7980.4
+Computers and Peripheral Equipment,FPEI,2010,0
+Computers and Peripheral Equipment,FDI,2010,8172.3
+Construction,FEI,2010,1806.1
+Construction,FDEI,2010,1723.1
+Construction,FPEI,2010,83
+Construction,FDI,2010,1468.3
+Electrical Machinery & Apparatus,FEI,2010,1250.4
+Electrical Machinery & Apparatus,FDEI,2010,1208.7
+Electrical Machinery & Apparatus,FPEI,2010,41.7
+Electrical Machinery & Apparatus,FDI,2010,1432
+Fabricated Metal Products,FEI,2010,895.1
+Fabricated Metal Products,FDEI,2010,872.2
+Fabricated Metal Products,FPEI,2010,22.9
+Fabricated Metal Products,FDI,2010,1268
+Financial & Insurance Services,FEI,2010,283470.9
+Financial & Insurance Services,FDEI,2010,234751.3
+Financial & Insurance Services,FPEI,2010,48719.6
+Financial & Insurance Services,FDI,2010,271261
+Financial Services,FEI,2010,274827.1
+Financial Services,FDEI,2010,226129.2
+Financial Services,FPEI,2010,48697.9
+Financial Services,FDI,2010,262623.1
+"Food, Beverages & Tobacco",FEI,2010,1986.8
+"Food, Beverages & Tobacco",FDEI,2010,1978.2
+"Food, Beverages & Tobacco",FPEI,2010,8.6
+"Food, Beverages & Tobacco",FDI,2010,2164.7
+Freight Water Transport,FEI,2010,24767.7
+Freight Water Transport,FDEI,2010,23916.3
+Freight Water Transport,FPEI,2010,851.4
+Freight Water Transport,FDI,2010,26808.8
+Information & Communications,FEI,2010,5825.8
+Information & Communications,FDEI,2010,4736.9
+Information & Communications,FPEI,2010,1088.9
+Information & Communications,FDI,2010,5936.9
+"Instrumentation, Photographic & Optical Goods",FEI,2010,6283.6
+"Instrumentation, Photographic & Optical Goods",FDEI,2010,6282.9
+"Instrumentation, Photographic & Optical Goods",FPEI,2010,0.7
+"Instrumentation, Photographic & Optical Goods",FDI,2010,6230.5
+Insurance Services,FEI,2010,8643.8
+Insurance Services,FDEI,2010,8622
+Insurance Services,FPEI,2010,21.8
+Insurance Services,FDI,2010,8638
+Investment Holding Companies,FEI,2010,236703.7
+Investment Holding Companies,FDEI,2010,194374.9
+Investment Holding Companies,FPEI,2010,42328.8
+Investment Holding Companies,FDI,2010,225952.3
+Land & Air Transport & Supporting Services,FEI,2010,243.4
+Land & Air Transport & Supporting Services,FDEI,2010,-320.6
+Land & Air Transport & Supporting Services,FPEI,2010,564
+Land & Air Transport & Supporting Services,FDI,2010,-321.6
+Machinery & Equipment,FEI,2010,6809.1
+Machinery & Equipment,FDEI,2010,6785.4
+Machinery & Equipment,FPEI,2010,23.7
+Machinery & Equipment,FDI,2010,7056.3
+Manufacturing,FEI,2010,118596.4
+Manufacturing,FDEI,2010,117388.7
+Manufacturing,FPEI,2010,1207.7
+Manufacturing,FDI,2010,133590.7
+Other Electronics nec,FEI,2010,6848.7
+Other Electronics nec,FDEI,2010,6316.1
+Other Electronics nec,FPEI,2010,532.6
+Other Electronics nec,FDI,2010,6420.3
+Other Financial Services,FEI,2010,20577.3
+Other Financial Services,FDEI,2010,18440.8
+Other Financial Services,FPEI,2010,2136.5
+Other Financial Services,FDI,2010,22191.3
+Other Water Transport nec,FEI,2010,5478.6
+Other Water Transport nec,FDEI,2010,5467.4
+Other Water Transport nec,FPEI,2010,11.2
+Other Water Transport nec,FDI,2010,6342.8
+Others,FEI,2010,9580.5
+Others,FDEI,2010,9479
+Others,FPEI,2010,101.5
+Others,FDI,2010,9542.4
+"Paper, Paper Products & Printing",FEI,2010,911.6
+"Paper, Paper Products & Printing",FDEI,2010,751.5
+"Paper, Paper Products & Printing",FPEI,2010,160.1
+"Paper, Paper Products & Printing",FDI,2010,779.9
+Pharmaceutical Products,FEI,2010,41345.4
+Pharmaceutical Products,FDEI,2010,41343.8
+Pharmaceutical Products,FPEI,2010,1.6
+Pharmaceutical Products,FDI,2010,42509.6
+"Professional,  Scientific & Technical, Administrative & Support Services",FEI,2010,31580.1
+"Professional,  Scientific & Technical, Administrative & Support Services",FDEI,2010,31297.6
+"Professional,  Scientific & Technical, Administrative & Support Services",FPEI,2010,282.5
+"Professional,  Scientific & Technical, Administrative & Support Services",FDI,2010,35173.7
+Real Estate Activities,FEI,2010,17645.7
+Real Estate Activities,FDEI,2010,15116.4
+Real Estate Activities,FPEI,2010,2529.3
+Real Estate Activities,FDI,2010,20083.1
+Refined Petroleum Products,FEI,2010,10788.1
+Refined Petroleum Products,FDEI,2010,10778.4
+Refined Petroleum Products,FPEI,2010,9.7
+Refined Petroleum Products,FDI,2010,20627.3
+Retail Trade,FEI,2010,2357.5
+Retail Trade,FDEI,2010,2287.1
+Retail Trade,FPEI,2010,70.4
+Retail Trade,FDI,2010,2421.8
+Rubber & Plastic Products,FEI,2010,1987
+Rubber & Plastic Products,FDEI,2010,1912.3
+Rubber & Plastic Products,FPEI,2010,74.7
+Rubber & Plastic Products,FDI,2010,1936.7
+Semiconductor Devices,FEI,2010,17243.7
+Semiconductor Devices,FDEI,2010,17145.1
+Semiconductor Devices,FPEI,2010,98.6
+Semiconductor Devices,FDI,2010,20315.7
+Total,FEI,2010,607372.1
+Total,FDEI,2010,550389.8
+Total,FPEI,2010,56982.3
+Total,FDI,2010,626383.4
+Transport & Storage,FEI,2010,34383.2
+Transport & Storage,FDEI,2010,32877.8
+Transport & Storage,FPEI,2010,1505.4
+Transport & Storage,FDI,2010,36793.8
+Transport Equipment,FEI,2010,3658
+Transport Equipment,FDEI,2010,3538.8
+Transport Equipment,FPEI,2010,119.2
+Transport Equipment,FDI,2010,3655.5
+"Warehousing, Post & Courier Services",FEI,2010,3893.5
+"Warehousing, Post & Courier Services",FDEI,2010,3814.7
+"Warehousing, Post & Courier Services",FPEI,2010,78.8
+"Warehousing, Post & Courier Services",FDI,2010,3963.7
+Water Transport & Supporting Services,FEI,2010,30246.2
+Water Transport & Supporting Services,FDEI,2010,29383.7
+Water Transport & Supporting Services,FPEI,2010,862.5
+Water Transport & Supporting Services,FDI,2010,33151.6
+Wholesale & Retail Trade,FEI,2010,101074.9
+Wholesale & Retail Trade,FDEI,2010,99661.5
+Wholesale & Retail Trade,FPEI,2010,1413.4
+Wholesale & Retail Trade,FDI,2010,108721.7
+Wholesale Trade,FEI,2010,98717.5
+Wholesale Trade,FDEI,2010,97374.4
+Wholesale Trade,FPEI,2010,1343.1
+Wholesale Trade,FDI,2010,106299.9
+Accommodation & Food Service Activities,FEI,2011,3681.3
+Accommodation & Food Service Activities,FDEI,2011,3621.7
+Accommodation & Food Service Activities,FPEI,2011,59.6
+Accommodation & Food Service Activities,FDI,2011,4311.7
+Banks,FEI,2011,17986.2
+Banks,FDEI,2011,13382.9
+Banks,FPEI,2011,4603.3
+Banks,FDI,2011,14534.8
+Basic Metals,FEI,2011,578.2
+Basic Metals,FDEI,2011,575.9
+Basic Metals,FPEI,2011,2.3
+Basic Metals,FDI,2011,576
+Chemicals & Chemical Products,FEI,2011,9206.8
+Chemicals & Chemical Products,FDEI,2011,9073.8
+Chemicals & Chemical Products,FPEI,2011,133
+Chemicals & Chemical Products,FDI,2011,9284.7
+"Computer, Electronic and Optical Products",FEI,2011,38034.8
+"Computer, Electronic and Optical Products",FDEI,2011,37432.5
+"Computer, Electronic and Optical Products",FPEI,2011,602.3
+"Computer, Electronic and Optical Products",FDI,2011,41983.6
+Computers and Peripheral Equipment,FEI,2011,8530.2
+Computers and Peripheral Equipment,FDEI,2011,8530.2
+Computers and Peripheral Equipment,FPEI,2011,0
+Computers and Peripheral Equipment,FDI,2011,8694.2
+Construction,FEI,2011,2977
+Construction,FDEI,2011,2946.2
+Construction,FPEI,2011,30.8
+Construction,FDI,2011,2613.8
+Electrical Machinery & Apparatus,FEI,2011,825.8
+Electrical Machinery & Apparatus,FDEI,2011,780.3
+Electrical Machinery & Apparatus,FPEI,2011,45.5
+Electrical Machinery & Apparatus,FDI,2011,990.1
+Fabricated Metal Products,FEI,2011,2392.1
+Fabricated Metal Products,FDEI,2011,2364.6
+Fabricated Metal Products,FPEI,2011,27.5
+Fabricated Metal Products,FDI,2011,2805.9
+Financial & Insurance Services,FEI,2011,315062.2
+Financial & Insurance Services,FDEI,2011,258116.9
+Financial & Insurance Services,FPEI,2011,56945.3
+Financial & Insurance Services,FDI,2011,295383.4
+Financial Services,FEI,2011,307355.7
+Financial Services,FDEI,2011,250432.5
+Financial Services,FPEI,2011,56923.2
+Financial Services,FDI,2011,287546.8
+"Food, Beverages & Tobacco",FEI,2011,2540.6
+"Food, Beverages & Tobacco",FDEI,2011,2537.9
+"Food, Beverages & Tobacco",FPEI,2011,2.7
+"Food, Beverages & Tobacco",FDI,2011,2561.9
+Freight Water Transport,FEI,2011,22407.2
+Freight Water Transport,FDEI,2011,21992.5
+Freight Water Transport,FPEI,2011,414.7
+Freight Water Transport,FDI,2011,23620.4
+Information & Communications,FEI,2011,5541.6
+Information & Communications,FDEI,2011,4504.3
+Information & Communications,FPEI,2011,1037.3
+Information & Communications,FDI,2011,5337.3
+"Instrumentation, Photographic & Optical Goods",FEI,2011,6598.5
+"Instrumentation, Photographic & Optical Goods",FDEI,2011,6598.5
+"Instrumentation, Photographic & Optical Goods",FPEI,2011,-
+"Instrumentation, Photographic & Optical Goods",FDI,2011,6531.3
+Insurance Services,FEI,2011,7706.6
+Insurance Services,FDEI,2011,7684.4
+Insurance Services,FPEI,2011,22.2
+Insurance Services,FDI,2011,7836.6
+Investment Holding Companies,FEI,2011,266668.2
+Investment Holding Companies,FDEI,2011,216403
+Investment Holding Companies,FPEI,2011,50265.2
+Investment Holding Companies,FDI,2011,248965.5
+Land & Air Transport & Supporting Services,FEI,2011,59.3
+Land & Air Transport & Supporting Services,FDEI,2011,-308
+Land & Air Transport & Supporting Services,FPEI,2011,367.3
+Land & Air Transport & Supporting Services,FDI,2011,-309
+Machinery & Equipment,FEI,2011,8848.7
+Machinery & Equipment,FDEI,2011,8816.5
+Machinery & Equipment,FPEI,2011,32.2
+Machinery & Equipment,FDI,2011,9603.5
+Manufacturing,FEI,2011,124892
+Manufacturing,FDEI,2011,123640.4
+Manufacturing,FPEI,2011,1251.6
+Manufacturing,FDI,2011,142141
+Other Electronics nec,FEI,2011,6304.6
+Other Electronics nec,FDEI,2011,5794.6
+Other Electronics nec,FPEI,2011,510
+Other Electronics nec,FDI,2011,5901.6
+Other Financial Services,FEI,2011,22701.3
+Other Financial Services,FDEI,2011,20646.6
+Other Financial Services,FPEI,2011,2054.7
+Other Financial Services,FDI,2011,24046.6
+Other Water Transport nec,FEI,2011,6118
+Other Water Transport nec,FDEI,2011,6092.6
+Other Water Transport nec,FPEI,2011,25.4
+Other Water Transport nec,FDI,2011,6544
+Others,FEI,2011,10279.2
+Others,FDEI,2011,10168.2
+Others,FPEI,2011,111
+Others,FDI,2011,11538.9
+"Paper, Paper Products & Printing",FEI,2011,1116
+"Paper, Paper Products & Printing",FDEI,2011,959.7
+"Paper, Paper Products & Printing",FPEI,2011,156.3
+"Paper, Paper Products & Printing",FDI,2011,987.9
+Pharmaceutical Products,FEI,2011,43744.5
+Pharmaceutical Products,FDEI,2011,43742.6
+Pharmaceutical Products,FPEI,2011,1.9
+Pharmaceutical Products,FDI,2011,44547.4
+"Professional,  Scientific & Technical, Administrative & Support Services",FEI,2011,35747.5
+"Professional,  Scientific & Technical, Administrative & Support Services",FDEI,2011,34940.2
+"Professional,  Scientific & Technical, Administrative & Support Services",FPEI,2011,807.3
+"Professional,  Scientific & Technical, Administrative & Support Services",FDI,2011,40578.7
+Real Estate Activities,FEI,2011,22578.6
+Real Estate Activities,FDEI,2011,19689.7
+Real Estate Activities,FPEI,2011,2888.9
+Real Estate Activities,FDI,2011,24485.8
+Refined Petroleum Products,FEI,2011,10440.1
+Refined Petroleum Products,FDEI,2011,10430.3
+Refined Petroleum Products,FPEI,2011,9.8
+Refined Petroleum Products,FDI,2011,21427.5
+Retail Trade,FEI,2011,2520.5
+Retail Trade,FDEI,2011,2490
+Retail Trade,FPEI,2011,30.5
+Retail Trade,FDI,2011,2619.2
+Rubber & Plastic Products,FEI,2011,1315.8
+Rubber & Plastic Products,FDEI,2011,1258.2
+Rubber & Plastic Products,FPEI,2011,57.6
+Rubber & Plastic Products,FDI,2011,1271.9
+Semiconductor Devices,FEI,2011,16601.5
+Semiconductor Devices,FDEI,2011,16509.2
+Semiconductor Devices,FPEI,2011,92.3
+Semiconductor Devices,FDI,2011,20856.5
+Total,FEI,2011,663031.8
+Total,FDEI,2011,597412
+Total,FPEI,2011,65619.8
+Total,FDI,2011,678908.5
+Transport & Storage,FEI,2011,32881.8
+Transport & Storage,FDEI,2011,32017.2
+Transport & Storage,FPEI,2011,864.6
+Transport & Storage,FDI,2011,34254.3
+Transport Equipment,FEI,2011,4025.7
+Transport Equipment,FDEI,2011,3853.3
+Transport Equipment,FPEI,2011,172.4
+Transport Equipment,FDI,2011,3910.8
+"Warehousing, Post & Courier Services",FEI,2011,4297.2
+"Warehousing, Post & Courier Services",FDEI,2011,4240.1
+"Warehousing, Post & Courier Services",FPEI,2011,57.1
+"Warehousing, Post & Courier Services",FDI,2011,4398.8
+Water Transport & Supporting Services,FEI,2011,28525.4
+Water Transport & Supporting Services,FDEI,2011,28085.2
+Water Transport & Supporting Services,FPEI,2011,440.2
+Water Transport & Supporting Services,FDI,2011,30164.4
+Wholesale & Retail Trade,FEI,2011,109390.7
+Wholesale & Retail Trade,FDEI,2011,107767.3
+Wholesale & Retail Trade,FPEI,2011,1623.4
+Wholesale & Retail Trade,FDI,2011,118263.6
+Wholesale Trade,FEI,2011,106870.2
+Wholesale Trade,FDEI,2011,105277.3
+Wholesale Trade,FPEI,2011,1592.9
+Wholesale Trade,FDI,2011,115644.4
+Accommodation & Food Service Activities,FEI,2012,4123.1
+Accommodation & Food Service Activities,FDEI,2012,4069.2
+Accommodation & Food Service Activities,FPEI,2012,53.9
+Accommodation & Food Service Activities,FDI,2012,4826.8
+Banks,FEI,2012,20672.2
+Banks,FDEI,2012,15909.2
+Banks,FPEI,2012,4763
+Banks,FDI,2012,17042.4
+Basic Metals,FEI,2012,527
+Basic Metals,FDEI,2012,524.5
+Basic Metals,FPEI,2012,2.5
+Basic Metals,FDI,2012,524.6
+Chemicals & Chemical Products,FEI,2012,9467.1
+Chemicals & Chemical Products,FDEI,2012,9357.7
+Chemicals & Chemical Products,FPEI,2012,109.4
+Chemicals & Chemical Products,FDI,2012,9686.1
+"Computer, Electronic and Optical Products",FEI,2012,38576.2
+"Computer, Electronic and Optical Products",FDEI,2012,37995.6
+"Computer, Electronic and Optical Products",FPEI,2012,580.6
+"Computer, Electronic and Optical Products",FDI,2012,41177.2
+Computers and Peripheral Equipment,FEI,2012,12674.4
+Computers and Peripheral Equipment,FDEI,2012,12674.4
+Computers and Peripheral Equipment,FPEI,2012,0
+Computers and Peripheral Equipment,FDI,2012,12221.7
+Construction,FEI,2012,3050.7
+Construction,FDEI,2012,2971.3
+Construction,FPEI,2012,79.4
+Construction,FDI,2012,2625.7
+Electrical Machinery & Apparatus,FEI,2012,1156.8
+Electrical Machinery & Apparatus,FDEI,2012,1154.8
+Electrical Machinery & Apparatus,FPEI,2012,2
+Electrical Machinery & Apparatus,FDI,2012,1280.9
+Fabricated Metal Products,FEI,2012,2430.8
+Fabricated Metal Products,FDEI,2012,2414.9
+Fabricated Metal Products,FPEI,2012,15.9
+Fabricated Metal Products,FDI,2012,2495
+Financial & Insurance Services,FEI,2012,372933
+Financial & Insurance Services,FDEI,2012,315368.4
+Financial & Insurance Services,FPEI,2012,57564.6
+Financial & Insurance Services,FDI,2012,359576.4
+Financial Services,FEI,2012,362226.2
+Financial Services,FDEI,2012,304683.3
+Financial Services,FPEI,2012,57542.9
+Financial Services,FDI,2012,348753.7
+"Food, Beverages & Tobacco",FEI,2012,3446.3
+"Food, Beverages & Tobacco",FDEI,2012,3445.4
+"Food, Beverages & Tobacco",FPEI,2012,0.9
+"Food, Beverages & Tobacco",FDI,2012,3454.1
+Freight Water Transport,FEI,2012,22717.7
+Freight Water Transport,FDEI,2012,22447.2
+Freight Water Transport,FPEI,2012,270.5
+Freight Water Transport,FDI,2012,23957.1
+Information & Communications,FEI,2012,8554.5
+Information & Communications,FDEI,2012,7444.3
+Information & Communications,FPEI,2012,1110.2
+Information & Communications,FDI,2012,7699.9
+"Instrumentation, Photographic & Optical Goods",FEI,2012,5854.1
+"Instrumentation, Photographic & Optical Goods",FDEI,2012,5853.6
+"Instrumentation, Photographic & Optical Goods",FPEI,2012,0.5
+"Instrumentation, Photographic & Optical Goods",FDI,2012,5849.1
+Insurance Services,FEI,2012,10706.8
+Insurance Services,FDEI,2012,10685.1
+Insurance Services,FPEI,2012,21.7
+Insurance Services,FDI,2012,10822.8
+Investment Holding Companies,FEI,2012,316659.3
+Investment Holding Companies,FDEI,2012,266350.5
+Investment Holding Companies,FPEI,2012,50308.8
+Investment Holding Companies,FDI,2012,305565.6
+Land & Air Transport & Supporting Services,FEI,2012,257.8
+Land & Air Transport & Supporting Services,FDEI,2012,-116.4
+Land & Air Transport & Supporting Services,FPEI,2012,374.2
+Land & Air Transport & Supporting Services,FDI,2012,-117.4
+Machinery & Equipment,FEI,2012,9126.6
+Machinery & Equipment,FDEI,2012,9006.3
+Machinery & Equipment,FPEI,2012,120.3
+Machinery & Equipment,FDI,2012,9947.2
+Manufacturing,FEI,2012,112678.4
+Manufacturing,FDEI,2012,111476.8
+Manufacturing,FPEI,2012,1201.6
+Manufacturing,FDI,2012,128515.2
+Other Electronics nec,FEI,2012,6088.4
+Other Electronics nec,FDEI,2012,5575
+Other Electronics nec,FPEI,2012,513.4
+Other Electronics nec,FDI,2012,6227.4
+Other Financial Services,FEI,2012,24894.7
+Other Financial Services,FDEI,2012,22423.6
+Other Financial Services,FPEI,2012,2471.1
+Other Financial Services,FDI,2012,26145.7
+Other Water Transport nec,FEI,2012,6848.5
+Other Water Transport nec,FDEI,2012,6829
+Other Water Transport nec,FPEI,2012,19.5
+Other Water Transport nec,FDI,2012,7477
+Others,FEI,2012,12092.9
+Others,FDEI,2012,11977.3
+Others,FPEI,2012,115.6
+Others,FDI,2012,12248.3
+"Paper, Paper Products & Printing",FEI,2012,1496.3
+"Paper, Paper Products & Printing",FDEI,2012,1335.9
+"Paper, Paper Products & Printing",FPEI,2012,160.4
+"Paper, Paper Products & Printing",FDI,2012,1364.2
+Pharmaceutical Products,FEI,2012,27670.1
+Pharmaceutical Products,FDEI,2012,27670.1
+Pharmaceutical Products,FPEI,2012,-
+Pharmaceutical Products,FDI,2012,28544.4
+"Professional,  Scientific & Technical, Administrative & Support Services",FEI,2012,35501.4
+"Professional,  Scientific & Technical, Administrative & Support Services",FDEI,2012,34650.6
+"Professional,  Scientific & Technical, Administrative & Support Services",FPEI,2012,850.8
+"Professional,  Scientific & Technical, Administrative & Support Services",FDI,2012,39574.5
+Real Estate Activities,FEI,2012,25083.6
+Real Estate Activities,FDEI,2012,22437.5
+Real Estate Activities,FPEI,2012,2646.1
+Real Estate Activities,FDI,2012,27090.7
+Refined Petroleum Products,FEI,2012,9578.1
+Refined Petroleum Products,FDEI,2012,9563.8
+Refined Petroleum Products,FPEI,2012,14.3
+Refined Petroleum Products,FDI,2012,20745.4
+Retail Trade,FEI,2012,2945.4
+Retail Trade,FDEI,2012,2912.9
+Retail Trade,FPEI,2012,32.5
+Retail Trade,FDI,2012,3036.1
+Rubber & Plastic Products,FEI,2012,1157.7
+Rubber & Plastic Products,FDEI,2012,1062.4
+Rubber & Plastic Products,FPEI,2012,95.3
+Rubber & Plastic Products,FDI,2012,1083.6
+Semiconductor Devices,FEI,2012,13959.4
+Semiconductor Devices,FDEI,2012,13892.6
+Semiconductor Devices,FPEI,2012,66.8
+Semiconductor Devices,FDI,2012,16878.9
+Total,FEI,2012,733414.9
+Total,FDEI,2012,667368.8
+Total,FPEI,2012,66046.1
+Total,FDI,2012,746689.7
+Transport & Storage,FEI,2012,36166
+Transport & Storage,FDEI,2012,35443.8
+Transport & Storage,FPEI,2012,722.2
+Transport & Storage,FDI,2012,37711.1
+Transport Equipment,FEI,2012,5478.8
+Transport Equipment,FDEI,2012,5385.8
+Transport Equipment,FPEI,2012,93
+Transport Equipment,FDI,2012,5322.7
+"Warehousing, Post & Courier Services",FEI,2012,6342
+"Warehousing, Post & Courier Services",FDEI,2012,6284
+"Warehousing, Post & Courier Services",FPEI,2012,58
+"Warehousing, Post & Courier Services",FDI,2012,6394.4
+Water Transport & Supporting Services,FEI,2012,29566.2
+Water Transport & Supporting Services,FDEI,2012,29276.2
+Water Transport & Supporting Services,FPEI,2012,290
+Water Transport & Supporting Services,FDI,2012,31434.1
+Wholesale & Retail Trade,FEI,2012,123231.4
+Wholesale & Retail Trade,FDEI,2012,121529.6
+Wholesale & Retail Trade,FPEI,2012,1701.8
+Wholesale & Retail Trade,FDI,2012,126821.1
+Wholesale Trade,FEI,2012,120286.1
+Wholesale Trade,FDEI,2012,118616.8
+Wholesale Trade,FPEI,2012,1669.3
+Wholesale Trade,FDI,2012,123785

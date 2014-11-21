@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../favicon.ico">
+
+  <title>VA :: Team Tardis</title>
+
+  <!-- CSS -->
+  <link href="css/bootstrap.css"  rel="stylesheet">
+  <link href="css/bootstrap-select.css"      rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style type="text/css">
+
+    /*
+      TO DO: 
+      move this to separate css later!
+      */
+
+      body {
+        padding-top: 70px;
+      }
+
+      .jumbotron {
+        background-color: #fff;
+      }
+
+      #graph_area {
+        min-height:560px
+        padding:10px 0 0 10px;
+      }
+
+      #graph_area * {
+        transition-delay: 0s;
+        transition-duration: .4s;
+        transition-property: all;
+        transition-timing-function: ease;
+      }
+      
+      text {
+        pointer-events: none;
+        font-size: 20px;
+      }
+
+      .grandparent text {
+        font-size: 20px;
+      }
+
+      rect {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 2px;
+      }
+
+      rect.parent,
+      .grandparent rect {
+        stroke-width: 2px;
+      }
+
+      rect.child {
+        fill: none;
+      }
+
+      .grandparent rect {
+        fill: rgb(255, 255, 255);
+        border-color: rgb(221, 221, 221);
+      }
+
+      .grandparent:hover rect {
+        fill: #dddddd;
+        fill-opacity : 0.5;
+      }
+
+      .children rect.parent,
+      .grandparent rect {
+        cursor: pointer;
+      }
+
+      .children rect.parent {
+        fill-opacity: .4;
+      }
+
+      .children:hover rect.child {
+        fill: #dddddd;
+        stroke: #444444;
+        fill-opacity: .5;
+        stroke-opacity: .7;
+      }
+
+    </style>
+
+    <!-- JS -->
+    <script src="js/d3.js"></script>
+    <script src="js/d3.parcoords.js"></script>
+    <script src="js/underscore.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">TEAM_TARDIS</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="stacked.html">Stacked Total</a></li>
+          <li><a href="stacked2.html">Stacked by Country</a></li>
+          <li class="active"><a href="tree2.html">Tree Map</a></li>
+          <li><a href="parcoord.html">Parallel Coordinates</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="jumbotron">
+
+      <!-- Search area -->
+      <div id="filter" class="row">
+        <div>
+          <span id="select_year_container">
+            <select id="select_year" class="selectpicker">
+            </select>
+          </span>
+          <span id="select_type_container">
+            <select id="select_type" class="selectpicker">
+            </select>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Title box-->
+        <div class="col-md-6">
+          <h3 id="graph_title">Total Investment in Singapore</h3>
+          <p id="graph_subtitle"  class="lead">By Industry </p>
+          <p id="filter_title"    class="text-primary">&nbsp;</p>
+        </div>
+        <div id="tree_box" class="text-right col-md-6">
+          <h4 id="tree_title" class=""></h4>
+          <p id="tree_value"></p>
+        </div>
+      </div>
+      
+      <!-- Graph area -->
+      <div id="graph_area" class="row">
+      </div>
+
+    </div>
+
+  </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- treemap script, move to separate file? -->
+    <script>
+      var nodes = [];
+      var years = [];
+      var types = [];
+      var value = [];
+      var colorgen = d3.scale.category20();
+      var colors = {};
+      var rootNode;
+
+      //default
+      var year = 2012;
+      var type = "FDI";
+
+      //read value data, then populate industry, year and type variable
+      d3.csv("data/tree.csv", function(data) {
+        value = data;
+        _(data)
+          .chain()
+          .pluck('Industry')
+          .uniq()
+          .each(function(d,i) {
+            colors[d] = colorgen(i);
+          });
+        _(data)
+          .chain()
+          .pluck('Year')
+          .uniq()
+          .each(function(d,i) {
+            years.push(d)
+          });
+          popYear();
+        _(data)
+          .chain()
+          .pluck('Type')
+          .uniq()
+          .each(function(d,i) {
+            types.push(d)
+          });
+          popType();
+
+        //read structure data, then draw initial graph
+        d3.json("data/tree.json", function(root) {
+          rootNode = root;
+          initialize(root);
+          draw(root, year, type);
+        });
+      })
+
+      var margin = {top: 50, right: 0, bottom: 0, left: 0},
+        width = $("#graph_area").width(),
+        height = 560 - margin.top - margin.bottom,
+        formatNumber = d3.format(",d"),
+        transitioning;
+
+      var x = d3.scale.linear()
+        .domain([0, width])
+        .range([0, width]);
+
+      var y = d3.scale.linear()
+        .domain([0, height])
+        .range([0, height]);
+
+      var treemap = d3.layout.treemap()
+        .sort(function(a, b) { return a.value - b.value; })
+        .ratio(height / width * 0.5 * (1 + Math.sqrt(5)))
+        .round(false);
+
+      var svg = d3.select("#graph_area").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.bottom + margin.top)
+        .style("margin-left", -margin.left + "px")
+        .style("margin.right", -margin.right + "px")
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .style("shape-rendering", "crispEdges");
+
+      var grandparent = svg.append("g")
+        .attr("class", "grandparent");
+
+      grandparent.append("rect")
+        .attr("y", -margin.top)
+        .attr("width", width)
+        .attr("height", margin.top);
+
+      grandparent.append("text")
+        .attr("x", 6)
+        .attr("y", 6 - margin.top)
+        .attr("dy", ".75em");
+
+
+      var color = function(d) { return colors[d.name]; };
+
+      
+
+      function draw(root) {
+        traverse(root);
+        layout(root);
+        display(root);
+      }
+
+      function update(root) {
+        traverse(root);
+        layout(root);
+          svg.selectAll("g.depth > *").transition().remove();
+          d3.transition().each("end", function() {
+            display(root);
+          });
+      }
+
+      function initialize(root) {
+        root.x = root.y = 0;
+        root.dx = width;
+        root.dy = height;
+        root.depth = 0;
+      }
+
+      function traverse(d) {
+        nodes.push(d);
+          //get value here
+          // d.value = getTotalSize(d);
+          d.value = getValue(d, year, type)
+        if (d.children) {
+          d.children.forEach(function(c) {
+            traverse(c);
+          });
+        } 
+      }
+
+      function getValue(node, year, type) {
+        var val = 0;
+        _(value)
+          .chain()
+          .uniq()
+          .each(function(d,i) {
+            //console.log(d);
+            if(d.Industry === node.name && d.Year == year && d.Type === type) {
+              //console.log(d.Industry, d.Year, d.Type, d.Value);
+              //return parseInt(d.Value);
+              val = parseInt(d.Value);
+            }
+          });
+        return val;
+      }
+
+      function layout(d) {
+        if (d.children) {
+          treemap.nodes({children: d.children});
+          d.children.forEach(function(c) {
+            c.x = d.x + c.x * d.dx;
+            c.y = d.y + c.y * d.dy;
+            c.dx *= d.dx;
+            c.dy *= d.dy;
+            c.parent = d;
+            layout(c);
+          });
+        }
+      }
+
+      function display(d) {
+        grandparent
+          .datum(d.parent)
+          .on("click", transition)
+          .select("text")
+          .text(name(d));
+        
+        var g1 = svg.insert("g", ".grandparent")
+          .datum(d)
+          .attr("class", "depth");
+
+        var g = g1.selectAll("g")
+          .data(d.children)
+          .enter().append("g");
+
+        g.filter(function(d) { return d.children; })
+          .classed("children", true)
+          .on("click", transition);
+
+        g.selectAll(".child")
+          .data(function(d) { return d.children || [d]; })
+          .enter().append("rect")
+          .attr("class", "child")
+          .call(rect);
+
+        g.append("rect")
+          .attr("class", "parent")
+          .style("fill", function(d) { return color(d) })
+          .call(rect)
+          .append("title")
+          .text(function(d) { return formatNumber(d.value); });
+
+        g.append("text")
+          .attr("dy", "1em")
+          .text(function(d) { return d.name; })
+          .call(text);
+
+        bindMouseover();
+
+        function transition(d) {
+          if (transitioning || !d) return;
+          transitioning = true;
+
+          var g2 = display(d),
+            t1 = g1.transition().duration(750),
+            t2 = g2.transition().duration(750);
+
+          // Update the domain only after entering new elements.
+          x.domain([d.x, d.x + d.dx]);
+          y.domain([d.y, d.y + d.dy]);
+
+          // Enable anti-aliasing during the transition.
+          svg.style("shape-rendering", null);
+
+          // Draw child nodes on top of parent nodes.
+          svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
+          // Fade-in entering text.
+          g2.selectAll("text").style("fill-opacity", 0);
+
+          // Transition to the new view.
+          t1.selectAll("text").call(text).style("fill-opacity", 0);
+          t2.selectAll("text").call(text).style("fill-opacity", 1);
+          t1.selectAll("rect").call(rect);
+          t2.selectAll("rect").call(rect);
+
+          // Remove the old node when the transition is finished.
+          t1.remove().each("end", function() {
+            svg.style("shape-rendering", "crispEdges");
+            transitioning = false;
+          });
+        }
+        return g;
+      }
+
+      function text(text) {
+        text.attr("x", function(d) { return x(d.x) + 6; })
+        .attr("y", function(d) { return y(d.y) + 6; });
+      }
+
+      function rect(rect) {
+        rect.attr("x", function(d) { return x(d.x); })
+        .attr("y", function(d) { return y(d.y); })
+        .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+        .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+      }
+
+      function name(d) {
+        return d.parent
+        ? name(d.parent) + " → " + d.name
+        : d.name;
+      }
+
+      $('#select_year').selectpicker({
+      });
+
+      function popYear() {  
+        years.forEach(function(d) {
+          $('#select_year')
+            .append('<option value=' + d + '>' + d + '</option>').selectpicker('refresh');
+        });
+        $('#select_year').selectpicker('refresh');
+        $('#select_year_container .filter-option').text(year);
+      }
+
+      function popType() {  
+        types.forEach(function(d) {
+          $('#select_type')
+            .append('<option value=' + d + '>' + d + '</option>').selectpicker('refresh');
+        });
+        $('#select_type').selectpicker('refresh');
+        $('#select_type_container .filter-option').text(type);
+      }
+
+      //$("#filter_title").text("Showing data from " );
+
+      $('#select_year_container').on('change', function() {
+        tgyear = parseInt($('#select_year_container .filter-option').text());
+        if(tgyear !== year) {
+          console.log(year, 'to', tgyear);
+          year = tgyear;
+          update(rootNode);
+        }
+      });
+
+      $('#select_type_container').on('change', function() {
+        tgtype = $('#select_type_container .filter-option').text();
+        console.log(tgtype);
+        if(tgtype !== type) {
+          //console.log(type, 'to' , tgtype);
+          type = tgtype;
+          update(rootNode);
+        }
+      });
+
+      function bindMouseover() {
+        $("rect.parent").on("mouseover", function() {
+          var value     = $(this).children().text();
+          var industry  = $(this).next().text();
+          //console.log(value, industry);
+          $("#tree_title").text(industry);
+          $("#tree_value").text("Value : " + value);
+        })
+      }
+      
+    </script>
+  </body>
+</html>

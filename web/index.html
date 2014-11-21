@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../favicon.ico">
+
+	<title>VA :: Team Tardis</title>
+
+	<!-- CSS -->
+	<link href="css/bootstrap.css"  rel="stylesheet">
+	<link href="css/d3.parcoords.css"   rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- JS -->
+      <script src="js/d3.js"></script>
+      <script src="js/d3.parcoords.js"></script>
+      <script src="js/underscore.js"></script>
+
+			<style type="text/css">
+		      body {
+		        padding-top: 70px;
+		      }
+      </style>
+  </head>
+  <body>
+
+  	<!-- Fixed navbar -->
+	  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	    <div class="container">
+	      <div class="navbar-header">
+	      <a class="navbar-brand" href="index.html">TEAM_TARDIS</a>
+	      </div>
+	      <div id="navbar" class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	          <li><a href="stacked.html">Stacked Total</a></li>
+	          <li><a href="stacked2.html">Stacked by Country</a></li>
+	          <li><a href="tree2.html">Tree Map</a></li>
+	          <li><a href="parcoord.html">Parallel Coordinates</a></li>
+	        </ul>
+	      </div><!--/.nav-collapse -->
+	    </div>
+	  </nav>
+
+	  <div class="container">
+	  	<div class="jumbotron">
+        
+        <h3>Project Description</h3>
+        <h5>The project will focus on the analysis of the timely statistics of foreign equity investment in Singapore. With the further analysis of economic returns of different business sectors in Singapore, this project is aimed to provide profound insights in term of the investment environment and economic stability in Singapore.</h5>
+
+        <br>
+        <h5>Abbreviation: </h5>
+        <h5>FDI - Foreign Direct Investment in Singapore</h5>
+        <h5>FEI - Foreign Equity Investment in Singapore</h5> 
+        <h5>FDEI - Foreign Direct Equity Investment in Singapore</h5>
+        <h5>FPEI - Foreign Portfolio Equity Invesment in Singapore</h5>
+        <br>
+
+        <h3>List of graphs</h3>               
+	  		<div class="list-group">
+				  <a href="stacked.html" class="list-group-item">
+				    <h4 class="list-group-item-heading">Total FDI & FPI & FEI value in Singapore from 1988-2012</h4>
+				    <p class="list-group-item-text">Graph shows the total inflow of FDI/FEI/FPI from various investing countries over time:</p>
+                                    <p class="list-group-item-text">The aim of this graph is to:</p>
+                                    <p class="list-group-item-text">• Give an overview on Singapore investment scene. Show the different FDI/FEI/FPI value across time.</p>
+                                    <p class="list-group-item-text">• Gives user the ability to compare the different type of investment through time by checking or unchecking the circle.   </p>
+
+                                  </a>
+				  <a href="stacked2.html" class="list-group-item">
+				    <h4 class="list-group-item-heading">Country investors in Singapore</h4>
+				    <p class="list-group-item-text">Shows the FDI/FEI/FPI value sorted by country</p>
+                                    <p class="list-group-item-text">The graph aims to:</p>
+                                    <p class="list-group-item-text">• Allow users to see which country is the top investor in Singapore, sorted by type eg. Who is the largest FDI investor in Singapore</p>
+                                    <p class="list-group-item-text">• Easy view by auto sorting per every click</p>
+                                    <p class="list-group-item-text">• Allow users to view data by year, by selecting from dropdown box</p>
+				  </a>
+				  <a href="parcoord.html" class="list-group-item">
+				    <h4 class="list-group-item-heading">FDI major industry breakdown by country:</h4>
+				    <p class="list-group-item-text">Shows the type of investment breakdown by major industry by country</p>
+                                    <p class="list-group-item-text">The aim of the graph is to:</p>
+                                    <p class="list-group-item-text">• Allow users to see the interest of countries investing in what type of industries in Singapore in terms of FDI (long term investment)</p>
+                                    <p class="list-group-item-text">• Allow interactivity by selected range for exploration.</p>
+                                    
+				  </a>
+				  <a href="tree2.html" class="list-group-item">
+				    <h4 class="list-group-item-heading">Investment breakdown by major industry:</h4>
+				    <p class="list-group-item-text">Shows the type of investment breakdown by major industry</p>
+                                    <p class="list-group-item-text">The graph aims to:</p>
+                                    <p class="list-group-item-text">• Allow users to see what type of funds are allocated to which industries eg. FDI</p>
+                                    <p class="list-group-item-text">• Explored through year</p>
+                                  </a>
+				</div>
+	  	</div>
+	  </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+	</body>
+</html>

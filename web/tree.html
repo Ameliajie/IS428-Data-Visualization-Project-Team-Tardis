@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>VA :: Team Tardis</title>
+
+    <!-- CSS -->
+    <link href="css/bootstrap.css"  rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+    /*
+      TO DO: 
+      move this to separate css later!
+    */
+
+      body {
+        padding-top: 70px;
+      }
+
+      .jumbotron {
+        background-color: #fff;
+      }
+
+      #graph_area {
+        min-height:560px
+        padding:10px 0 0 10px;
+      }
+
+      #graph_area * {
+        transition-delay: 0s;
+        transition-duration: .4s;
+        transition-property: all;
+        transition-timing-function: ease;
+      }
+      
+      text {
+        pointer-events: none;
+      }
+
+      .grandparent text {
+        font-size: 20px;
+      }
+
+      rect {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 2px;
+      }
+
+      rect.parent,
+      .grandparent rect {
+        stroke-width: 2px;
+      }
+
+      rect.child {
+        fill: none;
+      }
+
+      .grandparent rect {
+        fill: rgb(255, 255, 255);
+        border-color: rgb(221, 221, 221);
+      }
+
+      .grandparent:hover rect {
+        fill: #dddddd;
+        fill-opacity : 0.5;
+      }
+
+      .children rect.parent,
+      .grandparent rect {
+        cursor: pointer;
+      }
+
+      .children rect.parent {
+        fill-opacity: .4;
+      }
+
+      .children:hover rect.child {
+        fill: #dddddd;
+        stroke: #444444;
+        fill-opacity: .5;
+        stroke-opacity: .7;
+      }
+
+    </style>
+
+    <!-- JS -->
+    <script src="js/d3.js"></script>
+    <script src="js/d3.parcoords.js"></script>
+    <script src="js/underscore.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          </button>
+          <a class="navbar-brand" href="#">TEAM_TARDIS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="stacked.html">Stacked</a></li>
+            <li class="active"><a href="#">Tree Map</a></li>
+            <li><a href="parcoord.html">Parallel Coordinates</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="jumbotron">
+
+        <!-- Search area -->
+        <div id="filter">
+
+          <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#checkboxes" aria-expanded="false" aria-controls="checkboxes">
+            Filter by Year
+          </button>
+          <div id="checkboxes" class="collapse well">
+            <div class="checkbox">
+              <label><input type="checkbox" value="2008" checked>2008</label>
+              
+            </div>
+            <div class="checkbox">
+              
+              <label><input type="checkbox" value="2009" checked>2009</label>
+            </div>
+            <div class="checkbox">
+              
+              <label><input type="checkbox" value="2010" checked>2010</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="2011" checked>2011</label>
+              
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="2012" checked>2012</label>
+              
+            </div>
+          </div>
+
+        </div>
+
+        <h3 id="graph_title">Total Investment in Singapore</h3>
+        <p id="graph_subtitle"  class="lead">By Industry </p>
+        <p id="filter_title"    class="text-primary">&nbsp;</p>
+
+        <!-- Graph area -->
+        <div id="graph_area">
+        </div>
+
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- treemap script, move to separate file? -->
+    <script>
+      var margin = {top: 50, right: 0, bottom: 0, left: 0},
+          width = $("#graph_area").width(),
+          height = 560 - margin.top - margin.bottom,
+          formatNumber = d3.format(",d"),
+          transitioning;
+       
+      var x = d3.scale.linear()
+          .domain([0, width])
+          .range([0, width]);
+       
+      var y = d3.scale.linear()
+          .domain([0, height])
+          .range([0, height]);
+       
+      var treemap = d3.layout.treemap()
+          //.children(function(d, depth) { return depth ? null : d.children; })
+          .sort(function(a, b) { return a.value - b.value; })
+          .ratio(height / width * 0.5 * (1 + Math.sqrt(5)))
+          .round(false);
+       
+      var svg = d3.select("#graph_area").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.bottom + margin.top)
+          .style("margin-left", -margin.left + "px")
+          .style("margin.right", -margin.right + "px")
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+          .style("shape-rendering", "crispEdges");
+
+
+      var incYear = [2008,2009,2010,2011,2012];
+
+      function draw(m, years) {
+        //clear svg before drawing
+        svg.selectAll("*").remove();
+
+        var mode = m;
+        var incYear = years;
+
+        var grandparent = svg.append("g")
+          .attr("class", "grandparent");
+       
+        grandparent.append("rect")
+          .attr("y", -margin.top)
+          .attr("width", width)
+          .attr("height", margin.top);
+       
+        grandparent.append("text")
+          .attr("x", 6)
+          .attr("y", 6 - margin.top)
+          .attr("dy", ".75em");
+
+        d3.json("data/tree.json", function(root) {
+          var colorgen = d3.scale.category20b();
+          var colors = {};
+
+          travColor(root);
+          var color = function(d) { return colors[d.name]; };
+
+          function travColor(d,i) {
+            colors[d.name] = colorgen(i);
+            if (d.children) {
+              d.children.forEach(function(c,j) {
+                travColor(c,j);
+              });
+            } 
+          };
+
+        function getTotalSize(category) {
+          var ret = 0;
+          if(_.contains(incYear, 2008)) {
+            ret += category._2008;
+          }
+          if(_.contains(incYear, 2009)) {
+            ret += category._2009;
+          }
+          if(_.contains(incYear, 2010)) {
+            ret += category._2010;
+          }
+          if(_.contains(incYear, 2011)) {
+            ret += category._2011;
+          }
+          if(_.contains(incYear, 2012)) {
+            ret += category._2012;
+          }
+          return ret;
+        }
+
+        function getAvgSize(category) {
+          return (getTotalSize(category)/incYear.length);
+        }
+
+        var nodes = [];
+        initialize(root);
+        traverse(root);
+        layout(root);
+        display(root);
+       
+        function initialize(root) {
+          root.x = root.y = 0;
+          root.dx = width;
+          root.dy = height;
+          root.depth = 0;
+        }
+       
+        function accumulate(d) {
+          return d.children
+              ? d.value = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0)
+              : d.value;
+        }
+
+        function traverse(d) {
+          nodes.push(d);
+          if(mode === "avg") {
+            d.value = getAvgSize(d);
+          } else {
+            d.value = getTotalSize(d);
+          }
+          if (d.children) {
+            d.children.forEach(function(c) {
+              traverse(c);
+            });
+          } 
+        }
+
+        function layout(d) {
+          if (d.children) {
+            treemap.nodes({children: d.children});
+            d.children.forEach(function(c) {
+              c.x = d.x + c.x * d.dx;
+              c.y = d.y + c.y * d.dy;
+              c.dx *= d.dx;
+              c.dy *= d.dy;
+              c.parent = d;
+              layout(c);
+            });
+          }
+        }
+       
+        function display(d) {
+          grandparent
+              .datum(d.parent)
+              .on("click", transition)
+            .select("text")
+              .text(name(d));
+          
+          var g1 = svg.insert("g", ".grandparent")
+              .datum(d)
+              .attr("class", "depth");
+       
+          var g = g1.selectAll("g")
+              .data(d.children)
+            .enter().append("g");
+       
+          g.filter(function(d) { return d.children; })
+              .classed("children", true)
+              .on("click", transition);
+       
+          g.selectAll(".child")
+              .data(function(d) { return d.children || [d]; })
+            .enter().append("rect")
+              .attr("class", "child")
+              .call(rect);
+       
+          g.append("rect")
+              .attr("class", "parent")
+              .style("fill", function(d) { return color(d) })
+              .call(rect)
+            .append("title")
+              .text(function(d) { return formatNumber(d.value); });
+       
+          g.append("text")
+              .attr("dy", ".75em")
+              .text(function(d) { return d.name; })
+              .call(text);
+       
+          function transition(d) {
+            if (transitioning || !d) return;
+            transitioning = true;
+       
+            var g2 = display(d),
+                t1 = g1.transition().duration(750),
+                t2 = g2.transition().duration(750);
+       
+            x.domain([d.x, d.x + d.dx]);
+            y.domain([d.y, d.y + d.dy]);
+       
+            svg.style("shape-rendering", null);
+       
+            svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
+            g2.selectAll("text").style("fill-opacity", 0);
+
+            t1.selectAll("text").call(text).style("fill-opacity", 0);
+            t2.selectAll("text").call(text).style("fill-opacity", 1);
+            t1.selectAll("rect").call(rect);
+            t2.selectAll("rect").call(rect);
+       
+            t1.remove().each("end", function() {
+              svg.style("shape-rendering", "crispEdges");
+              transitioning = false;
+            });
+          }
+          return g;
+        }
+       
+        function text(text) {
+          text.attr("x", function(d) { return x(d.x) + 6; })
+            .attr("y", function(d) { return y(d.y) + 6; });
+        }
+       
+        function rect(rect) {
+          rect.attr("x", function(d) { return x(d.x); })
+            .attr("y", function(d) { return y(d.y); })
+            .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+            .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+        }
+       
+        function name(d) {
+          return d.parent
+            ? name(d.parent) + " / " + d.name
+            : d.name;
+        }
+      });
+
+      };
+
+      draw("total", incYear);
+      $("#filter_title").text("Showing data from " + incYear);
+
+      $("#checkboxes").on("change", function() {
+        incYear = [];
+        $('input[type=checkbox]').each(function(i) {
+            if(this.checked) {
+              incYear.push(parseInt(this.value));
+            }
+        });
+        //console.log(incYear);
+        if(incYear.length != 0) {
+          draw("total", incYear);
+          $("#filter_title").text("Showing data from " + incYear);
+        } else {
+          //send notice!
+        }
+      });
+
+    </script>
+  </body>
+</html>
