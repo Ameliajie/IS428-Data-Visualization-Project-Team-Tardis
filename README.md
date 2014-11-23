@@ -7,7 +7,7 @@ Installation Guide-IS428 Team Tardis
 1. Download and install Netbean/Eclipse<br>
 2. Create a new project named IS428APP<br>
 3. Import src file and web file into project IS428APP<br>
-4. First page is line.html
+4. Change the welcome file(first page) as line.html
 
 -----User Guide-----<br>
 Definitions:<br>
