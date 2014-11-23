@@ -20,4 +20,3 @@ Foreign Portfolio Investment(FPI): <br>
 
 The visualization consist of 2 Dashboards. <br>
 The first dashboard visualized the trend of diferent types of foreign investment types over time, country investors and their major invested industry breakdown. The second dashboard shows the trend of industry performance over time.<br>
-
